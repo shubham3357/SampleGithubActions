@@ -18,17 +18,17 @@ public class BaseClass {
 	public static WebDriver webDriver;
 	ReadConfig readconfig = new ReadConfig();
 
-	public String userName = readconfig.getUserName();
-	public String password = readconfig.getPassword();
+	public String userName = readconfig.getUserName().trim(); //actions add additional space when write value in properties
+	public String password = readconfig.getPassword(); //actions do not add spaces for last insert
 	public String baseURL = readconfig.getApplicationURL();
 	public String platformType = readconfig.getPlatformType();
-	public String browser = readconfig.getBrowser();
+	public String browser = readconfig.getBrowser().trim(); //actions add additional space when write value in properties
 
 	public void setUp() {
 		reportSetup();
 		try {
 			if (platformType.equalsIgnoreCase("web")) {
-				if (browser.trim().equalsIgnoreCase("chrome")) {
+				if (browser.equalsIgnoreCase("chrome")) {
 					WebDriverManager.chromedriver().setup();
 					ChromeOptions options = new ChromeOptions();
 					options.addArguments("--no-sandbox");
@@ -37,9 +37,6 @@ public class BaseClass {
 					webDriver = new ChromeDriver(options);
 					loggerNew.info("Chrome Browser opened successfully!!!");
 				}
-				System.out.println(browser.trim().equalsIgnoreCase("chrome"));
-				System.out.println("Browser: " + browser);
-				System.out.println("Username: " + userName);
 				webDriver.manage().window().maximize();
 				webDriver.get(baseURL);
 				loggerNew.info("URL is opened!!");
