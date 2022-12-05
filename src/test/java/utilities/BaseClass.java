@@ -28,14 +28,16 @@ public class BaseClass {
 		reportSetup();
 		try {
 			if (platformType.equalsIgnoreCase("web")) {
-				WebDriverManager.chromedriver().setup();
-				ChromeOptions options = new ChromeOptions();
-				options.addArguments("--no-sandbox");
-				options.addArguments("--disable-dev-shm-usage");
-				options.addArguments("--headless");
-				webDriver = new ChromeDriver(options);
-				loggerNew.info("Chrome Browser opened successfully!!!");
-				System.out.println("Browser: " + browser);
+				if (browser.equalsIgnoreCase("chrome")) {
+					WebDriverManager.chromedriver().setup();
+					ChromeOptions options = new ChromeOptions();
+					options.addArguments("--no-sandbox");
+					options.addArguments("--disable-dev-shm-usage");
+					options.addArguments("--headless");
+					webDriver = new ChromeDriver(options);
+					loggerNew.info("Chrome Browser opened successfully!!!");
+				}
+				System.out.println(browser.equalsIgnoreCase("chrome"));
 				webDriver.manage().window().maximize();
 				webDriver.get(baseURL);
 				loggerNew.info("URL is opened!!");
