@@ -42,7 +42,7 @@ jobs:
 
     - name: Write Multiline value to Properties-file
       id: write_multi
-      uses: christian-draeger/write-properties@1.1.0
+      uses: GuillaumeFalourd/write-java-properties-file@v1
       with:
         path: './Configurations/configuration.properties'
         property: |
