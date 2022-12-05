@@ -39,6 +39,7 @@ public class BaseClass {
 				}
 				System.out.println(browser.trim().equalsIgnoreCase("chrome"));
 				System.out.println("Browser: " + browser);
+				System.out.println("Username: " + userName);
 				webDriver.manage().window().maximize();
 				webDriver.get(baseURL);
 				loggerNew.info("URL is opened!!");
