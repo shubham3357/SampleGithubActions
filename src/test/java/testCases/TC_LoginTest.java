@@ -21,7 +21,9 @@ public class TC_LoginTest extends BaseClass {
 	@Test
 	public void loginTest() throws InterruptedException {
 		Thread.sleep(2000);
+
 		LoginPage lp = new LoginPage();
+		System.out.println(browse.equalsIgnoreCase("chrome"));
 		lp.setUserName(userName);
 		loggerNew.info("Entered Username!!");
 

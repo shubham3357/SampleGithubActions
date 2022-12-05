@@ -23,6 +23,7 @@ public class BaseClass {
 	public String baseURL = readconfig.getApplicationURL();
 	public String platformType = readconfig.getPlatformType();
 	public String browser = readconfig.getBrowser();
+	public String browse = readconfig.getBrowse();
 
 	public void setUp() {
 		reportSetup();
