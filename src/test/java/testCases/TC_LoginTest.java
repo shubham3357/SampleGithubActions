@@ -23,8 +23,6 @@ public class TC_LoginTest extends BaseClass {
 		Thread.sleep(2000);
 
 		LoginPage lp = new LoginPage();
-		System.out.println(browse.trim().equalsIgnoreCase("chrome"));
-		System.out.println("Browse: "+browse);
 		lp.setUserName(userName);
 		loggerNew.info("Entered Username!!");
 

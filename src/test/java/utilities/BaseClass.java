@@ -29,7 +29,7 @@ public class BaseClass {
 		reportSetup();
 		try {
 			if (platformType.equalsIgnoreCase("web")) {
-				if (browser.equalsIgnoreCase("chrome")) {
+				if (browser.trim().equalsIgnoreCase("chrome")) {
 					WebDriverManager.chromedriver().setup();
 					ChromeOptions options = new ChromeOptions();
 					options.addArguments("--no-sandbox");
@@ -38,7 +38,7 @@ public class BaseClass {
 					webDriver = new ChromeDriver(options);
 					loggerNew.info("Chrome Browser opened successfully!!!");
 				}
-				System.out.println(browser.equalsIgnoreCase("chrome"));
+				System.out.println(browser.trim().equalsIgnoreCase("chrome"));
 				webDriver.manage().window().maximize();
 				webDriver.get(baseURL);
 				loggerNew.info("URL is opened!!");
