@@ -35,7 +35,7 @@ public class BaseClass {
 				options.addArguments("--headless");
 				webDriver = new ChromeDriver(options);
 				loggerNew.info("Chrome Browser opened successfully!!!");
-
+				System.out.println("Browser: " + browser);
 				webDriver.manage().window().maximize();
 				webDriver.get(baseURL);
 				loggerNew.info("URL is opened!!");

@@ -7,17 +7,17 @@ import utilities.BaseClass;
 public class LoginPage extends BaseClass {
 
 	public void setUserName(String uname) {
-		WebElement userName = BaseClass.webDriver.findElement(By.xpath("//input[@name='uid']"));
+		WebElement userName = webDriver.findElement(By.xpath("//input[@name='uid']"));
 		userName.sendKeys(uname);
 	}
 
 	public void setPassword(String pwd) {
-		WebElement password = BaseClass.webDriver.findElement(By.xpath("//input[@name='password']"));
+		WebElement password = webDriver.findElement(By.xpath("//input[@name='password']"));
 		password.sendKeys(pwd);
 	}
 
 	public void clickOnLogin() {
-		WebElement btnLogin = BaseClass.webDriver.findElement(By.xpath("//input[@name='btnLogin']"));
+		WebElement btnLogin = webDriver.findElement(By.xpath("//input[@name='btnLogin']"));
 		btnLogin.click();
 	}
 }
