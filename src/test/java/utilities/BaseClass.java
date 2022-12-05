@@ -23,7 +23,6 @@ public class BaseClass {
 	public String baseURL = readconfig.getApplicationURL();
 	public String platformType = readconfig.getPlatformType();
 	public String browser = readconfig.getBrowser();
-	public String browse = readconfig.getBrowse();
 
 	public void setUp() {
 		reportSetup();
@@ -39,6 +38,7 @@ public class BaseClass {
 					loggerNew.info("Chrome Browser opened successfully!!!");
 				}
 				System.out.println(browser.trim().equalsIgnoreCase("chrome"));
+				System.out.println("Browser: " + browser);
 				webDriver.manage().window().maximize();
 				webDriver.get(baseURL);
 				loggerNew.info("URL is opened!!");
