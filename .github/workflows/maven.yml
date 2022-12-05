@@ -1,0 +1,51 @@
+name: Java CI with Maven
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 19
+      uses: actions/setup-java@v3
+      with:
+        java-version: '19'
+        distribution: 'temurin'
+        cache: maven
+
+    - name: Write BROWSER value to Properties-file
+      id: write_property1
+      uses: Reedyuk/write-properties@v1.0.1
+      with:
+        path: './Configurations/configuration.properties'
+        property: BROWSER
+        value: chrome
+
+    - name: Write UserName value to Properties-file
+      id: write_property2
+      uses: Reedyuk/write-properties@v1.0.1
+      with:
+        path: './Configurations/configuration.properties'
+        property: UserName
+        value: mngr26593
+
+    - name: Write Password value to Properties-file
+      id: write_property3
+      uses: Reedyuk/write-properties@v1.0.1
+      with:
+        path: './Configurations/configuration.properties'
+        property: Password
+        value: 123@123
+
+    - name: Read value from Properties-file
+      id: read_property
+      uses: christian-draeger/read-properties@1.1.0
+      with:
+        path: './Configurations/configuration.properties'
+        properties: BROWSER UserName Password
+
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
