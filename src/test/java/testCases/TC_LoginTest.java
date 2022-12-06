@@ -1,5 +1,6 @@
 package testCases;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
@@ -38,6 +39,7 @@ public class TC_LoginTest extends BaseClass {
 			String logText = "Test Case: loginTest Passed";
 			Markup m = MarkupHelper.createLabel(logText, ExtentColor.GREEN);
 			loggerNew.log(Status.PASS, m);
+			Assert.assertTrue(true);
 		} else {
 			loggerNew.pass("Title is not matched.");
 			loggerNew.info("Login Test Failed!!");
