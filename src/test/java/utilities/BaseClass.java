@@ -35,7 +35,7 @@ public class BaseClass {
 					options.addArguments("--no-sandbox");
 					options.addArguments("--disable-dev-shm-usage");
 					options.addArguments("--headless");
-					webDriver = new ChromeDriver();
+					webDriver = new ChromeDriver(options);
 					loggerNew.info("Chrome Browser opened successfully!!!");
 				}
 
