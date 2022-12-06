@@ -15,14 +15,6 @@ on:
         required: true
         default: https://demo.guru99.com/v3/index.php
         type: url
-      username:
-        description: 'Enter Username'
-        required: true
-        default: mngr26593
-      password:
-        description: 'Enter Password'
-        required: true
-        default: 123@123
 
   pull_request:
     branches: [ "master" ]
@@ -68,7 +60,7 @@ jobs:
         with:
           path: './Configurations/configuration.properties'
           property: UserName
-          value: ${{ github.event.inputs.username }}
+          value: ${{ secrets.USERNAME }}
 
       - name: Write Password value to Properties-file
         id: write_property4
@@ -76,7 +68,7 @@ jobs:
         with:
           path: './Configurations/configuration.properties'
           property: Password
-          value: ${{ github.event.inputs.password }}
+          value: ${{ secrets.PASSWORD }}
 
       - name: Read value from Properties-file
         id: read_property
