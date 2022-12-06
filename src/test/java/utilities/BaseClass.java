@@ -37,6 +37,7 @@ public class BaseClass {
 					webDriver = new ChromeDriver();
 					loggerNew.info("Chrome Browser opened successfully!!!");
 				}
+				System.out.println(browser.equalsIgnoreCase("chrome"));
 				webDriver.manage().window().maximize();
 				webDriver.get(baseURL);
 				loggerNew.info("URL is opened!!");
