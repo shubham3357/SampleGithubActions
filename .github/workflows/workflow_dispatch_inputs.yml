@@ -1,4 +1,4 @@
-name: Input use
+name: Workflow dispatch inputs
 on:
   #schedule:
   #  - cron: "*/5 * * * *"
@@ -62,7 +62,7 @@ jobs:
           value: ${{ github.event.inputs.url }}
 
       - name: Write UserName value to Properties-file
-        id: write_property2
+        id: write_property3
         uses: Reedyuk/write-properties@v1.0.1
         with:
           path: './Configurations/configuration.properties'
@@ -70,7 +70,7 @@ jobs:
           value: ${{ github.event.inputs.username }}
 
       - name: Write Password value to Properties-file
-        id: write_property3
+        id: write_property4
         uses: Reedyuk/write-properties@v1.0.1
         with:
           path: './Configurations/configuration.properties'
