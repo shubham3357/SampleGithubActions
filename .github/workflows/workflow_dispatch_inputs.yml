@@ -13,7 +13,7 @@ on:
       url:
         description: 'Enter navigating url'
         required: true
-        default: https://demo.guru99.com/v3/index.php
+        default: https:\/\/demo.guru99.com\/v3\/index.php
         type: url
 
   pull_request:
@@ -30,13 +30,6 @@ jobs:
           java-version: '19'
           distribution: 'temurin'
           cache: maven
-
-      - uses: nanasess/setup-chromedriver@v1
-      - run: |
-          export DISPLAY=:99
-          chromedriver --url-base=/wd/hub &
-          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
-
 
       - name: Write BROWSER value to Properties-file
         id: write_property1
