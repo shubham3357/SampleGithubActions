@@ -4,8 +4,27 @@ on:
   #  - cron: "*/5 * * * *"
   push:
     branches: [ "master" ]
+    inputs:
+      browser:
+        description: 'Input browser (chrome or IE)'
+        required: true
+        default: chrome
+      url:
+        description: 'Enter navigating url'
+        required: true
+        default: https://demo.guru99.com/v3/index.php
+      username:
+        description: 'Enter Username'
+        required: true
+        default: mngr26593
+      password:
+        description: 'Enter Password'
+        required: true
+        default: 123@123
+
   pull_request:
     branches: [ "master" ]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,13 +37,28 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
+    - uses: nanasess/setup-chromedriver@v1
+    - run: |
+        export DISPLAY=:99
+        chromedriver --url-base=/wd/hub &
+        sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
+        
+
     - name: Write BROWSER value to Properties-file
       id: write_property1
       uses: Reedyuk/write-properties@v1.0.1
       with:
         path: './Configurations/configuration.properties'
         property: BROWSER
-        value: chrome
+        value: ${{ github.event.inputs.browser }}
+
+    - name: Write URL value to Properties-file
+      id: write_property2
+      uses: Reedyuk/write-properties@v1.0.1
+      with:
+        path: './Configurations/configuration.properties'
+        property: WEB_URL
+        value: ${{ github.event.inputs.url }}
 
     - name: Write UserName value to Properties-file
       id: write_property2
@@ -32,7 +66,7 @@ jobs:
       with:
         path: './Configurations/configuration.properties'
         property: UserName
-        value: mngr26593
+        value: ${{ github.event.inputs.username }}
 
     - name: Write Password value to Properties-file
       id: write_property3
@@ -40,14 +74,14 @@ jobs:
       with:
         path: './Configurations/configuration.properties'
         property: Password
-        value: 123@123
+        value: ${{ github.event.inputs.password }}
 
     - name: Read value from Properties-file
       id: read_property
       uses: christian-draeger/read-properties@1.1.0
       with:
         path: './Configurations/configuration.properties'
-        properties: BROWSER UserName Password
+        properties: BROWSER UserName Password URL
 
     - name: Build with Maven
       run: mvn test --batch-mode

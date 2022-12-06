@@ -44,9 +44,4 @@ public class ReadConfig {
 		String browser = pro.getProperty("BROWSER");
 		return browser;
 	}
-
-	public String getBrowse() {
-		String browse = pro.getProperty("BROWSE");
-		return browse;
-	}
 }

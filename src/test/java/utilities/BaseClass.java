@@ -20,7 +20,7 @@ public class BaseClass {
 
 	public String userName = readconfig.getUserName().trim(); //actions add additional space when write value in properties
 	public String password = readconfig.getPassword(); //actions do not add spaces for last insert
-	public String baseURL = readconfig.getApplicationURL();
+	public String baseURL = readconfig.getApplicationURL().trim();
 	public String platformType = readconfig.getPlatformType();
 	public String browser = readconfig.getBrowser().trim(); //actions add additional space when write value in properties
 
