@@ -29,7 +29,6 @@ public class BaseClass {
 		try {
 			if (platformType.equalsIgnoreCase("web")) {
 				if (browser.equalsIgnoreCase("chrome")) {
-					System.out.println(browser.equalsIgnoreCase("chrome"));
 					WebDriverManager.chromedriver().setup();
 					ChromeOptions options = new ChromeOptions();
 					options.addArguments("--no-sandbox");

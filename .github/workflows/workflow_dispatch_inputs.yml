@@ -78,7 +78,7 @@ jobs:
           properties: BROWSER UserName Password URL
 
       - name: Build with Maven
-        run: mvn test --batch-mode
+        run: mvn clean test
 
       - name: Publish Test Report
         if: ${{ always() }}
