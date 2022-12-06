@@ -27,6 +27,7 @@ public class BaseClass {
 	public void setUp() {
 		reportSetup();
 		try {
+			System.out.println(browser.equalsIgnoreCase("chrome"));
 			if (platformType.equalsIgnoreCase("web")) {
 				if (browser.equalsIgnoreCase("chrome")) {
 					WebDriverManager.chromedriver().setup();
@@ -37,7 +38,7 @@ public class BaseClass {
 					webDriver = new ChromeDriver();
 					loggerNew.info("Chrome Browser opened successfully!!!");
 				}
-				System.out.println(browser.equalsIgnoreCase("chrome"));
+
 				webDriver.manage().window().maximize();
 				webDriver.get(baseURL);
 				loggerNew.info("URL is opened!!");
