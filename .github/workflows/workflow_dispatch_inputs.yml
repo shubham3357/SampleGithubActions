@@ -13,7 +13,7 @@ on:
       url:
         description: 'Enter navigating url'
         required: true
-        default: https://demo.guru99.com/v3/index.php
+        default: 'https://demo.guru99.com/v3/index.php'
       username:
         description: 'Enter Username'
         required: true
