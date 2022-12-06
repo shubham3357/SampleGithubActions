@@ -31,10 +31,10 @@ public class BaseClass {
 				if (browser.equalsIgnoreCase("chrome")) {
 					System.out.println(browser.equalsIgnoreCase("chrome"));
 					WebDriverManager.chromedriver().setup();
-					/*ChromeOptions options = new ChromeOptions();
+					ChromeOptions options = new ChromeOptions();
 					options.addArguments("--no-sandbox");
 					options.addArguments("--disable-dev-shm-usage");
-					options.addArguments("--headless");*/
+					options.addArguments("--headless");
 					webDriver = new ChromeDriver();
 					loggerNew.info("Chrome Browser opened successfully!!!");
 				}
