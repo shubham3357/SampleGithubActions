@@ -30,11 +30,11 @@ public class BaseClass {
 			if (platformType.equalsIgnoreCase("web")) {
 				if (browser.equalsIgnoreCase("chrome")) {
 					WebDriverManager.chromedriver().setup();
-					ChromeOptions options = new ChromeOptions();
+					/*ChromeOptions options = new ChromeOptions();
 					options.addArguments("--no-sandbox");
 					options.addArguments("--disable-dev-shm-usage");
-					options.addArguments("--headless");
-					webDriver = new ChromeDriver(options);
+					options.addArguments("--headless");*/
+					webDriver = new ChromeDriver();
 					loggerNew.info("Chrome Browser opened successfully!!!");
 				}
 				webDriver.manage().window().maximize();
