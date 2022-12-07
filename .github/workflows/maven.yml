@@ -2,8 +2,8 @@ name: Unit Test
 on:
   #schedule:
   #  - cron: "*/5 * * * *"
-  #push:
-  #  branches: [ "master" ]
+  push:
+    branches: [ "master" ]
 
   pull_request:
     branches: [ "master" ]
@@ -20,6 +20,14 @@ jobs:
         java-version: '19'
         distribution: 'temurin'
         cache: maven
+
+    - name: Write BROWSER value to Properties-file
+      id: write_property1
+      uses: Reedyuk/write-properties@v1.0.1
+      with:
+        path: './Configurations/configuration.properties'
+        property: BROWSER
+        value: chrom
 
     - name: Read value from Properties-file
       id: read_property
