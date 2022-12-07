@@ -37,9 +37,7 @@ jobs:
         with:
           path: './Configurations/configuration.properties'
           property: BROWSER
-          value: |
-          ${{ github.event.inputs.browser }}
-          ${{ github.event.inputs.url }}
+          value: ${{ github.event.inputs.browser }}
 
       - name: Write URL value to Properties-file
         id: write_property2
