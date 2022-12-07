@@ -32,7 +32,7 @@ public class TC_LoginTest extends BaseClass {
 
 		lp.clickOnLogin();
 		loggerNew.info("Clicked on Login Button!!");
-
+		Assert.assertTrue(true);
 		if (webDriver.getTitle().equals("Guru99 Bank Manager HomePage")) {
 			loggerNew.pass("Title is verified successully!!");
 			loggerNew.info("Login Test Passed!!");
