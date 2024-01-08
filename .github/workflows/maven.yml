@@ -16,23 +16,15 @@ jobs:
       with:
         java-version: '19'
 
-    - name: Write BROWSER value to Properties-file
-      id: write_property1
-      uses: Reedyuk/write-properties@v1.0.1
-      with:
-        path: './Configurations/configuration.properties'
-        property: BROWSER
-        value: ${{ github.event.inputs.browser }}
-
     - name: Read value from Properties-file
       id: read_property
       uses: christian-draeger/read-properties@1.1.0
       with:
         path: './Configurations/configuration.properties'
-        properties: BROWSER UserName Password WEB_URL
+        properties: BROWSER
 
     - name: Build with Maven
-      run: mvn -B package --file UITesting.xml
+      run: mvn -B package --file pom.xml
 
     - name: Publish Test Report
       if: ${{ always() }}
