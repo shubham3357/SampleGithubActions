@@ -25,7 +25,6 @@ public class BaseClass {
 	public String browser = readconfig.getBrowser().trim(); //actions add additional space when write value in properties
 
 	public void setUp() {
-		reportSetup();
 		try {
 			if (platformType.equalsIgnoreCase("web")) {
 				if (browser.equalsIgnoreCase("chrome")) {
@@ -35,39 +34,23 @@ public class BaseClass {
 					options.addArguments("--disable-dev-shm-usage");
 					options.addArguments("--headless");
 					webDriver = new ChromeDriver(options);
-					loggerNew.info("Chrome Browser opened successfully!!!");
 				}
 
 				webDriver.manage().window().maximize();
 				webDriver.get(baseURL);
-				loggerNew.info("URL is opened!!");
 
 			}
 		} catch (Exception e) {
-			loggerNew.info("Exception occured while returning the driver");
+			//loggerNew.info("Exception occured while returning the driver");
 		}
 	}
 
-	public void reportSetup() {
-		// TODO Auto-generated method stub
-		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + File.separator + "TestReport"
-				+ File.separator + "AutomationReport.html");
-		htmlReporter.config().setEncoding("utf-8");
-		htmlReporter.config().setDocumentTitle("Login Automation Report");
-		htmlReporter.config().setReportName("Login Report");
-		htmlReporter.config().setTheme(Theme.STANDARD);
-		htmlReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
 
-		// initialize ExtentReports and attach the HtmlReporter
-		extent = new ExtentReports();
-		extent.attachReporter(htmlReporter);
-		loggerNew = extent.createTest("Login Test");
-	}
 
 	public void tearDown() {
-		if (platformType.equalsIgnoreCase("web") && !webDriver.equals(null)) {
+		if (platformType.equalsIgnoreCase("web") && webDriver != null) {
 			webDriver.quit();
-			loggerNew.info("Successfully quit driver!!!");
+			//loggerNew.info("Successfully quit driver!!!");
 		}
 	}
 }

@@ -16,8 +16,8 @@ on:
         default: https:\/\/demo.guru99.com\/v3\/index.php
         type: url
 
-  pull_request:
-    branches: [ "master" ]
+  #pull_request:
+  #  branches: [ "master" ]
 
 jobs:
   build:
