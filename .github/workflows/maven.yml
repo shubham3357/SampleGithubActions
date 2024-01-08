@@ -30,7 +30,7 @@ jobs:
         properties: BROWSER UserName Password WEB_URL
 
     - name: Build with Maven
-      run: mvn clean test -Punit-test
+      run: mvn clean test UITesting.xml
 
     - name: Publish Test Report
       if: ${{ always() }}
