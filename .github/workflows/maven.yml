@@ -2,6 +2,8 @@ name: Unit Test
 on:
   schedule:
     - cron: '41 * * * *'
+  push:
+    branches: [ "master" ]
 
 jobs:
   build:
