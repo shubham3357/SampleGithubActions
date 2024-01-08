@@ -1,22 +1,11 @@
 name: Unit Test
 on:
-  #schedule:
-  #  - cron: "*/5 * * * *"
-  push:
-    inputs:
-      browser:
-        description: 'hello'
-        required: true
-        default: chrome
-
-    branches: [ "master" ]
-
-  pull_request:
-    branches: [ "master" ]
+  schedule:
+    - cron: "0 22 8 1 *"
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows
     steps:
 
     - uses: actions/checkout@v2
@@ -24,8 +13,6 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '19'
-        distribution: 'temurin'
-        cache: maven
 
     - name: Write BROWSER value to Properties-file
       id: write_property1

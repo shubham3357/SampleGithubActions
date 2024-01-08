@@ -6,6 +6,19 @@ import utilities.BaseClass;
 
 public class LoginPage extends BaseClass {
 
+	//User validate the key "pageUrl" and value "a"
+	/*
+	method(key, value){
+		Value = key.equals("pageUrl")
+				?"b"
+				:value;
+
+		assert(actualValue, value);
+
+	}
+
+	 */
+
 	public void setUserName(String uname) {
 		WebElement userName = webDriver.findElement(By.xpath("//input[@name='uid']"));
 		userName.sendKeys(uname);
