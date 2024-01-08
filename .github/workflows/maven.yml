@@ -1,7 +1,7 @@
 name: Unit Test
 on:
   schedule:
-    - cron: '10 * * * *'
+    - cron: '41 * * * *'
 
 jobs:
   build:
