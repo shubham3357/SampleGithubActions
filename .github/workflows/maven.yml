@@ -1,7 +1,10 @@
 name: Unit Test
 on:
   schedule:
-    - cron: "0 22 8 1 *"
+    - cron: '0 22 8 1 *'
+
+  push:
+    branches: [ "master" ]
 
 jobs:
   build:
