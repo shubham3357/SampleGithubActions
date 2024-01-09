@@ -5,11 +5,11 @@ name: Maven Package
 
 on:
   schedule:
-    - cron: '22 8 * * *'
+    - cron: '27 8 * * *'
   #release:
   #  types: [created]
-  #push:
-  #  branches: [ "master" ]
+  push:
+    branches: [ "master" ]
 
 
 jobs:
