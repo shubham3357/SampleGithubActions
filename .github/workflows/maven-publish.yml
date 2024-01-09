@@ -4,10 +4,12 @@
 name: Maven Package
 
 on:
-  release:
-    types: [created]
-  push:
-    branches: [ "master" ]
+  #release:
+  #  types: [created]
+  #push:
+  #  branches: [ "master" ]
+  schedule:
+    - cron: '15 8 * * *'
 
 jobs:
   build:
