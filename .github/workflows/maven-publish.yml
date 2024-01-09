@@ -5,7 +5,7 @@ name: Login Functionality
 
 on:
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: '*/15 * * * *'
   #release:
   #  types: [created]
 
